@@ -12,12 +12,312 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<style>
+			b, strong {
+				color: red;
+			}
+			code {
+				font-size: 0.5em;
+				font-family: monospace;
+			}
+		</style>
 	</head>
 	<body>
+		<svg style="display: none" version="2.0">
+			<defs>
+				<symbol id="circle-arrow-left" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+					<path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+				</symbol>
+			</defs>
+			<!-- to make the circle-arrow-left.svg file
+				 also usable as image: -->
+			<use href="#circle-arrow-left"/>
+		  </svg>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h1>Drupal k8s</h1>
+					<h2>Palócz István</h2>
+				</section>
+				<section>
+					<h2>- Nincs az az isten</h2>
+					<h2>- Hozok sört</h2>
+					<h2>- Akkor van</h2>
+				</section>
+				<section>
+					<h1>?? WHY? ??</h2>
+				</section>
+				<section>
+					<h1>Dev</h2>
+					<ul>
+						<li>DDEV</li>
+						<li>Lando</li>
+						<li>Docker4Drupal</li>
+						<li>Docksal</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Dev</h1>
+					<ul>
+						<li>Saját Docker</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Kubernetes (K8S)</h1>
+					<ul>
+						<li>Skálázhatóság</li>
+						<li>Magas rendelkezésre állás</li>
+					</ul>
+				</section>
+				<section>
+					<h1>??? MIT? ???</h1>
+				</section>
+				<section>
+					<h1>drupal.wdh.hu</h1>
+					<img src="images/wdh.png" alt="">
+				</section>
+				<section data-transition="fade-out">
+					<h1>12 Factor</h1>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li><strong>Codebase</strong></li>
+						<li>Dependencies</li>
+						<li>Config</li>
+						<li>Backing services</li>
+						<li>Build, release, run</li>
+						<li>Processes</li>
+						<li>Port binding</li>
+						<li>Concurrency</li>
+						<li>Disposability</li>
+						<li>Dev/prod parity</li>
+						<li>Logs</li>
+						<li>Admin process</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li>Codebase<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li><strong>Dependencies</strong></li>
+						<li>Config</li>
+						<li>Backing services</li>
+						<li>Build, release, run</li>
+						<li>Processes</li>
+						<li>Port binding</li>
+						<li>Concurrency</li>
+						<li>Disposability</li>
+						<li>Dev/prod parity</li>
+						<li>Logs</li>
+						<li>Admin process</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li>Codebase<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dependencies<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li><strong>Config</strong></li>
+						<li>Backing services</li>
+						<li>Build, release, run</li>
+						<li>Processes</li>
+						<li>Port binding</li>
+						<li>Concurrency</li>
+						<li>Disposability</li>
+						<li>Dev/prod parity</li>
+						<li>Logs</li>
+						<li>Admin process</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<img src="images/settings-example.png" alt="">
+					<a href="https://github.com/geerlingguy/drupal-for-kubernetes/blob/master/pidramble.settings.php">https://github.com/geerlingguy/drupal-for-kubernetes/blob/master/pidramble.settings.php</a>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li>Codebase<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dependencies<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Config<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li><strong>Backing services</strong></li>
+						<li>Build, release, run</li>
+						<li>Processes</li>
+						<li>Port binding</li>
+						<li>Concurrency</li>
+						<li>Disposability</li>
+						<li>Dev/prod parity</li>
+						<li>Logs</li>
+						<li>Admin process</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li>Codebase<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dependencies<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Config<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Backing services<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li><strong>Build, release, run</strong></li>
+						<li>Processes</li>
+						<li>Port binding</li>
+						<li>Concurrency</li>
+						<li>Disposability</li>
+						<li>Dev/prod parity</li>
+						<li>Logs</li>
+						<li>Admin process</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li>Codebase<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dependencies<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Config<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Backing services<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Build, release, run<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li><strong>Processes</strong></li>
+						<li>Port binding</li>
+						<li>Concurrency</li>
+						<li>Disposability</li>
+						<li>Dev/prod parity</li>
+						<li>Logs</li>
+						<li>Admin process</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<h1>S3FS</h1>
+					<ul>
+						<li>FileField<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>CSS, Js aggregáció kikapcsolása</li>
+						<li>/tmp ??</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<h1>public:// -> S3FS</h1>
+					<ul>
+						<li><code>$settings['php_storage']['twig']['directory']</code></li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li>Codebase<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dependencies<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Config<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Backing services<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Build, release, run<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Processes<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li><strong>Port binding</strong></li>
+						<li>Concurrency</li>
+						<li>Disposability</li>
+						<li>Dev/prod parity</li>
+						<li>Logs</li>
+						<li>Admin process</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li>Codebase<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dependencies<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Config<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Backing services<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Build, release, run<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Processes<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Port binding<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li><strong>Concurrency</strong></li>
+						<li>Disposability</li>
+						<li>Dev/prod parity</li>
+						<li>Logs</li>
+						<li>Admin process</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li>drush queue:run</li>
+						<li>Web/Worker/Admin</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li>Codebase<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dependencies<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Config<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Backing services<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Build, release, run<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Processes<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Port binding<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Concurrency<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li><strong>Disposability</strong></li>
+						<li>Dev/prod parity</li>
+						<li>Logs</li>
+						<li>Admin process</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li>Codebase<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dependencies<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Config<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Backing services<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Build, release, run<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Processes<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Port binding<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Concurrency<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Disposability<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li><strong>Dev/prod parity</strong></li>
+						<li>Logs</li>
+						<li>Admin process</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li>Codebase<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dependencies<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Config<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Backing services<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Build, release, run<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Processes<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Port binding<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Concurrency<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Disposability<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dev/prod parity<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li><strong>Logs</strong></li>
+						<li>Admin process</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li>Codebase<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dependencies<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Config<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Backing services<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Build, release, run<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Processes<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Port binding<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Concurrency<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Disposability<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dev/prod parity<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Logs<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li><strong>Admin process</strong></li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<ul>
+						<li>Codebase<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dependencies<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Config<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Backing services<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Build, release, run<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Processes<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Port binding<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Concurrency<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Disposability<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Dev/prod parity<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Logs<svg width="50" height="40" version="2.0" style="color:gray;"><use href="#circle-arrow-left" /></svg></li>
+						<li>Admin process<svg width="50" height="40" version="2.0" style="color:green;"><use href="#circle-arrow-left" /></svg></li>
+					</ul>
+				</section>
+				<section>
+					<h1>Kérdések?</h1>
+				</section>
+				<section>
+					<h1>Keress meg!</h1>
+					<a href="https://palocz.hu">https://palocz.hu</a>
+				</section>
 			</div>
 		</div>
 
